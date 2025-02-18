@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Moyo - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--grid-gap);
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            width: auto;
+            height: auto;
+            /* aspect-ratio:16/9; */
+            border-radius: 2px;
+            background-color: #f5f5f5;
+            box-shadow: 0px 0px 7px grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.5);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .project-card:hover::after {
+            opacity: 0.8;
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            color: white;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(1rem);
+            transition: all var(--transition-speed);
+        }
+
+        .project-card:hover .project-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <header>
+
+    <!-- Nav Bar  -->
+        <nav class="container">
+            <a href="index.html" class="logo">Daniel Moyo<br>
+                <span class="normal-weight"> Geologist|GIS and Remote sensing</span></a>
+            
+            <div class="nav-links">
+                <a href="index.html"><strong>Maps</strong></a>
+                <a href="github.html">GitHub</a>
+                <a href="about.html">About</a>
+            </div>
+          
+        </nav>
+      
+    </header>
+
+    <main>
+        <!-- Main sections  -->
+        <section class="portfolio-section">
+            <div class="container">
+
+                <h2 class="section-title">Personal Projects(GITHUB PAGE UNDER CONSTRUCTION)</h2>
+                <p ><strong>Playground <br> <br> </strong></p>
+                <div class="project-grid">
+
+                    <a href="images\maps\density_annotated.png" class="project-card">
+                        <img src="images\maps\density_annotated.png" alt="Mzuzu Population density Map">
+                        <span class="project-title">Mzuzu Density Map</span>
+                    </a>
+
+                    <a href="images\maps\Relief Map Of Malawi.jpg" class="project-card">
+                        <img src="images\maps\Relief Map Of Malawi.jpg" alt="Map 2">
+                        <span class="project-title">Terrain Relief Map</span>
+                    </a>
+
+                    <a href="images\maps\Ntcheu Terrain Monotone.jpg" class="project-card">
+                        <img src="images\maps\Ntcheu Terrain Monotone.jpg" alt="Map 3">
+                        <span class="project-title">Ntcheu Terrain Map</span>
+                    </a>
+
+                    <a href="images\maps\Mzuzu-pop_density.png" class="project-card">
+                        <img src="images\maps\Mzuzu-pop_density.png" alt="Mzuzu 2020 population demsity">
+                        <span class="project-title">Mzuzu 2020 population density Map</span>
+                    </a>
+
+                    <a href="images\maps\topo_annotated.png" class="project-card">
+                        <img src="images\maps\topo_annotated.png" alt="Likom Island Map">
+                        <span class="project-title">Likoma Island Map</span>
+                    </a>
+                    <a href="images\maps\Phwezi_poster_Map.png" class="project-card">
+                        <img src="images\maps\Phwezi_poster_Map.png"alt="Phwezi Poster Map">
+                        <span class="project-title">Phwezi Poster Map</span>
+                    </a>
+                </div>
+
+                <!-- <h2 class="section-title">Commissioned Projects</h2>
+                <div class="project-grid">
+                    <a href="#" class="project-card">
+                        <img src="/api/placeholder/400/400" alt="Map 1">
+                        <span class="project-title">Map 1</span>
+                    </a>
+                    <a href="#" class="project-card">
+                        <img src="/api/placeholder/400/400" alt="Map 2">
+                        <span class="project-title">Map 2</span>
+                    </a>
+                    <a href="#" class="project-card">
+                        <img src="/api/placeholder/400/400" alt="Map 3">
+                        <span class="project-title">Map 3</span>
+                    </a>
+                    <a href="#" class="project-card">
+                        <img src="/api/placeholder/400/400" alt="Map 4">
+                        <span class="project-title">Map 4</span>
+                    </a>
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div>© 2025 Daniel Moyo</div>
+            <div>
+                <a href="mailto: moyodanj@gmail.com">Email</a> |
+                <a href="https://www.linkedin.com/in/daniel-moyo-9000b8228/">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

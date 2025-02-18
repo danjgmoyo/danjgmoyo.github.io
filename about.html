@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Moyo - About</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-section {
+            padding: 4rem 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: var(--grid-gap);
+        }
+
+        .profile-photo {
+            aspect-ratio: 1;
+            background-color: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+
+        .profile-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            margin: 2rem 0 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .about-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .contact-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform var(--transition-speed);
+        }
+
+        .contact-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-photo {
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Daniel Moyo<br>
+                <span class="normal-weight"> Earth science|GIS and Remote sensing</span></a>
+            <div class="nav-links">
+                <a href="index.html">Maps</a>
+                <a href="github.html">GitHub</a>
+                <a href="about.html"><strong>About</strong></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">WEBSITE UNDER CONSTRUCTION</h2>
+                <div class="about-grid">
+                    <div class="profile-photo">
+                        <img src="images\maps\profile\profile.jpg" alt="Daniel Moyo">
+                    </div>
+                    <div class="about-content">
+                        <p> Daniel Moyo is a recent earth science(Geology) graduate with solid foundation 
+                            in geology and modern geospatial analysis. He has also developed skills in GIS, 
+                            remote sensing and geophysical data interpretation. He is also open to any freelance and job opportunities
+                        </p>
+
+
+                        <h2> skills</h2>
+                            <ul>
+                                <li>Field Geology</li>
+                                <li>Petrography and geochemistry</li>
+                                <li>Geophysicald data interpretation(seismic, Magnetic, gravity)</li>
+                                <li>cartography</li>
+                                <li>GIS and remote sensing </li>
+                            </ul>
+                        
+                        <h2>Experience</h2>
+                        <p> Geologist(intern)
+                            <br>Geological Survey department, Mzuzu City (2024- present)
+                        </p>
+                        
+                        <h2>Education</h2>
+                        <p>Bachelor of Science in Earth Sciences (Geology) 2024
+                            <p>Malawi University of Science and Technology</p>
+                            
+                        
+                        
+                        <h2>Contact</h2>
+                        <div class="contact-links">
+                            <p><a href="mailto:moyodanj@gmail.com">moyodanj@gmail.com</a> </p>
+                        </div>
+
+                    </main>
+
+                        <footer>
+                            <div class="container footer-content">
+                                <div>© 2025 Daniel Moyo</div>
+                                <div>
+                                    <a href="mailto:moyodanj@gmail.com">Email/<a> |
+                                        <a href="https://www.linkedin.com/in/daniel-moyo-9000b8228/">LinkedIn</a>
+                                </div>
+                            </div>
+                        </footer>
+                            

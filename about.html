@@ -1,151 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Moyo - About</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .about-section {
-            padding: 4rem 0;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: var(--grid-gap);
-        }
-
-        .profile-photo {
-            aspect-ratio: 1;
-            background-color: #f5f5f5;
-            overflow: hidden;
-        }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-speed);
-        }
-
-        .profile-photo:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-content h2 {
-            margin: 2rem 0 1rem;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .about-content h2:first-child {
-            margin-top: 0;
-        }
-
-        .about-content p {
-            margin-bottom: 1rem;
-        }
-
-        .contact-links a {
-            display: inline-block;
-            margin-right: 1rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 0.25rem;
-        }
-
-        .contact-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: var(--primary-color);
-            transform: scaleX(0);
-            transition: transform var(--transition-speed);
-        }
-
-        .contact-links a:hover::after {
-            transform: scaleX(1);
-        }
-
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-photo {
-                max-width: 300px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Moyo — About</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">Daniel Moyo<br>
-                <span class="normal-weight"> Earth science|GIS and Remote sensing</span></a>
-            <div class="nav-links">
-                <a href="index.html">Maps</a>
-                <a href="github.html">GitHub</a>
-                <a href="about.html"><strong>About</strong></a>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <section class="about-section">
-            <div class="container">
+  <header>
+    <nav class="container" id="nav"></nav>
+  </header>
 
-                <div class="about-grid">
-                    <div class="profile-photo">
-                        <img src="images\maps\profile\profile.jpg" alt="Daniel Moyo">
-                    </div>
-                    <div class="about-content">
-                        <p> Daniel Moyo is a recent earth science(Geology) graduate with solid foundation 
-                            in geology and modern geospatial analysis. He has also developed skills in GIS, 
-                            remote sensing and geophysical data interpretation. He is also open to any freelance and job opportunities
-                        </p>
+  <main>
+    <div class="container">
+      <div class="about-wrap">
 
+        <div class="about-header">
+          <h1>Daniel Moyo</h1>
+          <p class="role">Geologist · GIS &amp; Remote Sensing · Geophysical Interpretation</p>
+        </div>
 
-                        <h2> skills</h2>
-                            <ul>
-                                <li>Field Geology</li>
-                                <li>Petrography and geochemistry</li>
-                                <li>Geophysical data interpretation(seismic, Magnetic, gravity)</li>
-                                <li>cartography</li>
-                                <li>GIS and remote sensing </li>
-                            </ul>
-                        
-                        <h2>Experience</h2>
-                        <p> <b> Geologist(Government internship)</b>
-                            <br>Geological Survey department, Mzuzu City (July 2025- present)
-                        </p>
-                        
-                        <h2>Education</h2>
-                        <p>Bachelor of Science in Earth Sciences (Geology) 2024
-                            <p>Malawi University of Science and Technology</p>
-                            
-                        
-                        
-                        <h2>Contact</h2>
-                        <div class="contact-links">
-                            <p><a href="mailto:moyodanj@gmail.com">moyodanj@gmail.com</a> </p>
-                        </div>
+        <div class="about-section">
+          <h2>Profile</h2>
+          <p>
+            Earth scientist with a grounding in field geology and a strong applied focus on 
+            geospatial analysis, remote sensing, and geophysical data interpretation. 
+            Currently working with the Geological Survey Department of Malawi, 
+            contributing to mapping, aeromagnetic interpretation, and hydrogeological analysis 
+            across northern Malawi.
+          </p>
+          <p>
+            Open to freelance opportunities in cartography, GIS analysis, and geoscience 
+            data visualisation.
+          </p>
+        </div>
 
-                    </main>
+        <div class="about-section">
+          <h2>Skills</h2>
+          <ul class="skills-list">
+            <li>Field Geology</li>
+            <li>Petrography</li>
+            <li>Geochemistry</li>
+            <li>Structural Geology</li>
+            <li>Aeromagnetic Interpretation</li>
+            <li>Gravity Interpretation</li>
+            <li>Seismic Interpretation</li>
+            <li>QGIS</li>
+            <li>Remote Sensing</li>
+            <li>Google Earth Engine</li>
+            <li>Cartography</li>
+            <li>InSAR</li>
+          </ul>
+        </div>
 
-                        <footer>
-                            <div class="container footer-content">
-                                <div>© 2025 Daniel Moyo</div>
-                                <div>
-                                    <a href="mailto:moyodanj@gmail.com">Email<a> |
-                                        <a href="https://www.linkedin.com/in/daniel-moyo-9000b8228/">LinkedIn</a>
-                                </div>
-                            </div>
-                        </footer>
-                            
+        <div class="about-section">
+          <h2>Experience</h2>
+          <div class="exp-item">
+            <div class="position">Geologist — Government Internship</div>
+            <div class="org">Geological Survey Department, Malawi · Regional Office North, Rumphi</div>
+            <div class="period">July 2025 — Present</div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>Education</h2>
+          <div class="exp-item">
+            <div class="position">BSc Earth Sciences (Geology)</div>
+            <div class="org">Malawi University of Science and Technology</div>
+            <div class="period">2024</div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>CV</h2>
+          <!-- Replace the href with the path to your CV PDF once uploaded -->
+          <!-- e.g. href="files/daniel-moyo-cv.pdf" -->
+          <a class="cv-btn" href="#" download>
+            Download CV ↓
+          </a>
+        </div>
+
+        <div class="about-section">
+          <h2>Contact</h2>
+          <div class="contact-row">
+            <a href="mailto:moyodanj@gmail.com">moyodanj@gmail.com</a>
+            <a href="https://www.linkedin.com/in/daniel-moyo-9000b8228/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/danjgmoyo" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner" id="footer"></div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    // ── Build Nav ──────────────────────────────────────────────
+    const navEl = document.getElementById('nav');
+    const logoA = document.createElement('a');
+    logoA.href = 'index.html';
+    logoA.className = 'logo';
+    logoA.innerHTML = 'Daniel Moyo<span>Geologist · GIS &amp; Remote Sensing</span>';
+    navEl.appendChild(logoA);
+
+    const linksDiv = document.createElement('div');
+    linksDiv.className = 'nav-links';
+    SITE.nav.forEach(item => {
+      const a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = item.label;
+      if (item.external) { a.target = '_blank'; a.rel = 'noopener'; a.className = 'external'; }
+      if (item.href === 'about.html') a.classList.add('active');
+      linksDiv.appendChild(a);
+    });
+    navEl.appendChild(linksDiv);
+
+    // ── Build Footer ───────────────────────────────────────────
+    document.getElementById('footer').innerHTML = `
+      <span>© 2026 Daniel Moyo</span>
+      <div class="footer-links">
+        <a href="mailto:moyodanj@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/daniel-moyo-9000b8228/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    `;
+  </script>
+</body>
+</html>

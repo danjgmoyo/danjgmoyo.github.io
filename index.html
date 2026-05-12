@@ -1,167 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Moyo - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--grid-gap);
-            margin-bottom: 4rem;
-        }
-
-        .project-card {
-            width: auto;
-            height: auto;
-            /* aspect-ratio:16/9; */
-            border-radius: 2px;
-            background-color: #f5f5f5;
-            box-shadow: 0px 0px 7px grey;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-speed);
-        }
-
-        .project-card:hover img {
-            transform: scale(1.5);
-        }
-
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: opacity var(--transition-speed);
-        }
-
-        .project-card:hover::after {
-            opacity: 0.8;
-        }
-
-        .project-title {
-            position: absolute;
-            bottom: 1rem;
-            left: 1rem;
-            color: white;
-            z-index: 1;
-            opacity: 0;
-            transform: translateY(1rem);
-            transition: all var(--transition-speed);
-        }
-
-        .project-card:hover .project-title {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Moyo</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
 
-    <!-- Nav Bar  -->
-        <nav class="container">
-            <a href="index.html" class="logo">Daniel Moyo<br>
-                <span class="normal-weight"> Geologist|GIS and Remote sensing</span></a>
-            
-            <div class="nav-links">
-                <a href="index.html"><strong>Maps</strong></a>
-                <a href="github.html">GitHub</a>
-                <a href="about.html">About</a>
-            </div>
-          
-        </nav>
-      
-    </header>
+  <header>
+    <nav class="container" id="nav"></nav>
+  </header>
 
-    <main>
-        <!-- Main sections  -->
-        <section class="portfolio-section">
-            <div class="container">
+  <main>
+    <div class="container">
+      <div class="filters" id="filters"></div>
+      <div class="grid"    id="grid"></div>
+    </div>
+  </main>
 
-                <h2 class="section-title">Personal Projects</h2>
-                <p ><strong>Playground <br> <br> </strong></p>
-                <div class="project-grid">
+  <footer>
+    <div class="container">
+      <div class="footer-inner" id="footer"></div>
+    </div>
+  </footer>
 
-                    <a href="images\maps\density_annotated.png" class="project-card">
-                        <img src="images\maps\density_annotated.png" alt="Mzuzu Population density Map">
-                        <span class="project-title">Mzuzu Density Map</span>
-                    </a>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lb-close">Close ✕</span>
+    <img id="lb-img" src="" alt="">
+  </div>
 
-                    <a href="images\maps\Relief Map Of Malawi.jpg" class="project-card">
-                        <img src="images\maps\Relief Map Of Malawi.jpg" alt="Map 2">
-                        <span class="project-title">Terrain Relief Map</span>
-                    </a>
+  <script src="data.js"></script>
+  <script>
+    // ── Build Nav ──────────────────────────────────────────────
+    const navEl = document.getElementById('nav');
+    const logoA = document.createElement('a');
+    logoA.href = 'index.html';
+    logoA.className = 'logo';
+    logoA.innerHTML = 'Daniel Moyo<span>Geologist · GIS &amp; Remote Sensing</span>';
+    navEl.appendChild(logoA);
 
-                    <a href="images\maps\Ntcheu Terrain Monotone.jpg" class="project-card">
-                        <img src="images\maps\Ntcheu Terrain Monotone.jpg" alt="Map 3">
-                        <span class="project-title">Ntcheu Terrain Map</span>
-                    </a>
+    const linksDiv = document.createElement('div');
+    linksDiv.className = 'nav-links';
+    SITE.nav.forEach(item => {
+      const a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = item.label;
+      if (item.external) { a.target = '_blank'; a.rel = 'noopener'; a.className = 'external'; }
+      if (item.href === 'index.html') a.classList.add('active');
+      linksDiv.appendChild(a);
+    });
+    navEl.appendChild(linksDiv);
 
-                    <a href="images\maps\Mzuzu-pop_density.png" class="project-card">
-                        <img src="images\maps\Mzuzu-pop_density.png" alt="Mzuzu 2020 population demsity">
-                        <span class="project-title">Mzuzu 2020 population density Map</span>
-                    </a>
+    // ── Build Filters ──────────────────────────────────────────
+    const filtersEl = document.getElementById('filters');
+    let activeFilter = 'All';
 
-                    <a href="images\maps\topo_annotated.png" class="project-card">
-                        <img src="images\maps\topo_annotated.png" alt="Likom Island Map">
-                        <span class="project-title">Likoma Island Map</span>
-                    </a>
-                    <a href="images\maps\Phwezi_poster_Map.png" class="project-card">
-                        <img src="images\maps\Phwezi_poster_Map.png"alt="Phwezi Poster Map">
-                        <span class="project-title">Phwezi Poster Map</span>
-                    </a>
-                </div>
+    SITE.categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (cat === 'All' ? ' active' : '');
+      btn.textContent = cat;
+      btn.addEventListener('click', () => {
+        activeFilter = cat;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.card').forEach(card => {
+          const match = cat === 'All' || card.dataset.category === cat;
+          card.classList.toggle('hidden', !match);
+        });
+      });
+      filtersEl.appendChild(btn);
+    });
 
-                <!-- <h2 class="section-title">Commissioned Projects</h2>
-                <div class="project-grid">
-                    <a href="#" class="project-card">
-                        <img src="/api/placeholder/400/400" alt="Map 1">
-                        <span class="project-title">Map 1</span>
-                    </a>
-                    <a href="#" class="project-card">
-                        <img src="/api/placeholder/400/400" alt="Map 2">
-                        <span class="project-title">Map 2</span>
-                    </a>
-                    <a href="#" class="project-card">
-                        <img src="/api/placeholder/400/400" alt="Map 3">
-                        <span class="project-title">Map 3</span>
-                    </a>
-                    <a href="#" class="project-card">
-                        <img src="/api/placeholder/400/400" alt="Map 4">
-                        <span class="project-title">Map 4</span>
-                    </a>
-                </div> -->
-            </div>
-        </section>
-    </main>
+    // ── Build Grid ─────────────────────────────────────────────
+    const gridEl = document.getElementById('grid');
 
-    <footer>
-        <div class="container footer-content">
-            <div>© 2025 Daniel Moyo</div>
-            <div>
-                <a href="mailto: moyodanj@gmail.com">Email</a> |
-                <a href="https://www.linkedin.com/in/daniel-moyo-9000b8228/">LinkedIn</a>
-            </div>
+    SITE.items.forEach((item, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.category = item.category;
+      card.innerHTML = `
+        <img src="${item.src}" alt="${item.title}" loading="lazy">
+        <div class="card-overlay">
+          <div class="card-title">${item.title}</div>
+          <div class="card-tag">${item.category}</div>
         </div>
-    </footer>
+      `;
+      card.addEventListener('click', () => openLightbox(item.src, item.title));
+      gridEl.appendChild(card);
+    });
+
+    // ── Lightbox ───────────────────────────────────────────────
+    const lightbox = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lb-img');
+    const lbClose  = document.getElementById('lb-close');
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // ── Build Footer ───────────────────────────────────────────
+    const footerEl = document.getElementById('footer');
+    footerEl.innerHTML = `
+      <span>© 2026 Daniel Moyo</span>
+      <div class="footer-links">
+        <a href="mailto:moyodanj@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/daniel-moyo-9000b8228/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    `;
+  </script>
 </body>
 </html>

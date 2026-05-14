@@ -1,7 +1,6 @@
 const SITE = {
 
   nav: [
-    { label: "Work",   href: "index.html" },
     { label: "About",  href: "about.html" },
     { label: "GitHub", href: "https://github.com/danjgmoyo", external: true }
   ],
@@ -39,7 +38,7 @@ const SITE = {
       src: "images/maps/topo_annotated.png"
     },
     {
-      title: "Phwezi Poster Map",
+      title: "Phwezi",
       category: "Maps",
       src: "images/maps/Phwezi_poster_Map.png"
     }
